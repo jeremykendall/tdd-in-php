@@ -54,6 +54,16 @@ class IntegerCalculatorTest extends \PHPUnit_Framework_TestCase
         $this->_calculator->add(22, 'YAH');
     }
     
+    /**
+     * This test added to address a question received about testing inputs for
+     * floats.
+     */
+    public function testThrowExceptionIfArgumentsAreFloats()
+    {
+        $this->setExpectedException('Exception', 'Non-integer argument provided');
+        $this->_calculator->add(1.5, 7.2);
+    }
+    
     public function testOverflow()
     {
         $this->assertInternalType('float', PHP_INT_MAX + 1);
