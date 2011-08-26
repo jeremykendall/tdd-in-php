@@ -14,12 +14,12 @@ the following set of requirements.
 ### Calculator
 * Adds one integer to another
 * Throws exceptions in the following cases
-** Non-integer arguments provided
-** Integer overflow
-** Integer underflow
+    * Non-integer arguments provided
+    * Integer overflow
+    * Integer underflow
 * Must be coded to an interface, not an implementation
-** Tutor\Calculator\CalculatorInterface
-** Tutor\Calculator\IntegerCalculator
+    * Tutor\Calculator\CalculatorInterface
+    * Tutor\Calculator\IntegerCalculator
 
 ### MathTutor
 * Verifies correct responses to addition questions
