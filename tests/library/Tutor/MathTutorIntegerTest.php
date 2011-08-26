@@ -60,6 +60,10 @@ class MathTutorIntegerTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->_tutor->gradeResponse(10, 10, 'I hate math!'));
     }
     
+    /**
+     * Added to confirm and resolve bug discovered during the presentation
+     * given at the ZendCon UnCon in 2010.
+     */
     public function testGradeBooleanTrueResult()
     {
         $this->_calculator->expects($this->once())
