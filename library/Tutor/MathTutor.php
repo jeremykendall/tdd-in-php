@@ -1,35 +1,54 @@
 <?php
 
-namespace Tutor;
-
 /**
- * Description of MathTutor
+ * Tutor
  *
- * @category
- * @package
- * @subpackage
- * @version     $Id$
+ * @category Tutor
+ * @package  Tutor_MathTutor   
  */
 
 /**
- * @category
- * @package
- * @subpackage
+ * @namespace
+ */
+namespace Tutor;
+
+use Tutor\Calculator\CalculatorInterface;
+
+/**
+ * Math tutor compares result of addition to user response
+ * 
+ * @category Tutor
+ * @package  Tutor_MathTutor
  */
 class MathTutor
 {
+
     /**
-     * @var Tutor\Calculator\CalculatorInterface
+     * @var CalculatorInterface
      */
     private $_calculator;
-    
-    public function __construct(Calculator\CalculatorInterface $calculator)
+
+    /**
+     * Constructor
+     * 
+     * @param CalculatorInterface $calculator 
+     */
+    public function __construct(CalculatorInterface $calculator)
     {
         $this->_calculator = $calculator;
     }
-    
-    public function gradeResponse($a, $b, $result)
+
+    /**
+     * Tests $response against the sum of the $augend and $addend
+     *
+     * @param  mixed   $augend
+     * @param  mixed   $addend
+     * @param  mixed   $response
+     * @return boolean 
+     */
+    public function gradeResponse($augend, $addend, $response)
     {
-        return $result === $this->_calculator->add($a, $b);
+        return $response === $this->_calculator->add($augend, $addend);
     }
+
 }

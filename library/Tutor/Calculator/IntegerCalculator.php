@@ -1,42 +1,89 @@
 <?php
 
+/**
+ * Tutor
+ *
+ * @category Tutor
+ * @package  Tutor_MathTutor   
+ */
+
+/**
+ * @namespace
+ */
 namespace Tutor\Calculator;
 
+/**
+ * Performs integer arithmetic
+ * 
+ * @category Tutor
+ * @package  Tutor_Calculator
+ */
 class IntegerCalculator implements CalculatorInterface
 {
 
-    public function add($a, $b)
+    /**
+     * Returns the sum of $augend and $addend
+     *
+     * @param  int $augend
+     * @param  int $addend
+     * @return int
+     */
+    public function add($augend, $addend)
     {
-        $this->_testArguments($a, $b);
-        $result = $a + $b;
-        $this->_testResult($result);
+        $this->_testArguments($augend, $addend);
+        $sum = $augend + $addend;
+        $this->_testSum($sum);
 
-        return $result;
+        return $sum;
     }
-    
-    private function _testArguments($a, $b)
+
+    /**
+     * Throws exception if either $augend or $addend are not integers
+     *
+     * @param  mixed     $augend
+     * @param  mixed     $addend 
+     * @throws Exception
+     */
+    private function _testArguments($augend, $addend)
     {
-        if (!is_int($a) || !is_int($b)) {
+        if (!is_int($augend) || !is_int($addend)) {
             throw new \Exception('Non-integer argument provided');
         }
     }
-    
-    private function _testResult($result)
+
+    /**
+     * Convenience wrapper for methods that test provided $sum
+     * 
+     * @param int $sum 
+     */
+    private function _testSum($sum)
     {
-        $this->_testOverflow($result);
-        $this->_testUnderflow($result);
+        $this->_testIntegerOverflow($sum);
+        $this->_testIntegerUnderflow($sum);
     }
-    
-    private function _testOverflow($result)
+
+    /**
+     * Tests sum against integer overflow
+     * 
+     * @param  mixed     $sum 
+     * @throws Exception
+     */
+    private function _testIntegerOverflow($sum)
     {
-        if ($result > PHP_INT_MAX) {
+        if ($sum > PHP_INT_MAX) {
             throw new \Exception('Integer overflow!');
         }
     }
-    
-    private function _testUnderflow($result)
+
+    /**
+     * Tests sum against integer underflow
+     * 
+     * @param  mixed     $sum 
+     * @throws Exception
+     */
+    private function _testIntegerUnderflow($sum)
     {
-        if ($result < (PHP_INT_MAX * -1) - 1) {
+        if ($sum < (PHP_INT_MAX * -1) - 1) {
             throw new \Exception('Integer underflow!');
         }
     }
