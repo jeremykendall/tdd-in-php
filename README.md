@@ -19,7 +19,7 @@ the following set of requirements.
     * Integer underflow
 * Must be coded to an interface, not an implementation
     * Tutor\Calculator\CalculatorInterface
-    * Tutor\Calculator\IntegerCalculator
+    * IntegerCalculator implements CalculatorInterface
 
 ### MathTutor
 * Verifies correct responses to addition questions
