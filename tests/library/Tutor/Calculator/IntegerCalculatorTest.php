@@ -68,13 +68,13 @@ class IntegerCalculatorTest extends \PHPUnit_Framework_TestCase
     
     public function testAddIntegerOverflowThrowsException()
     {
-        $this->setExpectedException('Exception', 'Integer overflow!');
+        $this->setExpectedException('OverflowException', 'Integer overflow!');
         $this->_calculator->add(PHP_INT_MAX, 1);
     }
     
     public function testAddIntegerUnderflowThrowsException()
     {
-        $this->setExpectedException('Exception', 'Integer underflow!');
+        $this->setExpectedException('UnderflowException', 'Integer underflow!');
         $this->_calculator->add((PHP_INT_MAX * -1), -2);
     }
     

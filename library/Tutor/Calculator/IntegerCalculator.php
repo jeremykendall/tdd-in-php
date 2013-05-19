@@ -70,8 +70,8 @@ class IntegerCalculator implements CalculatorInterface
      */
     private function _testIntegerOverflow($sum)
     {
-        if ($sum > PHP_INT_MAX) {
-            throw new \Exception('Integer overflow!');
+        if (!is_int($sum) AND $sum > 0) {
+            throw new \OverflowException('Integer overflow!');
         }
     }
 
@@ -83,8 +83,8 @@ class IntegerCalculator implements CalculatorInterface
      */
     private function _testIntegerUnderflow($sum)
     {
-        if ($sum < (PHP_INT_MAX * -1) - 1) {
-            throw new \Exception('Integer underflow!');
+        if (!is_int($sum) AND $sum < 0) {
+            throw new \UnderflowException('Integer underflow!');
         }
     }
 
