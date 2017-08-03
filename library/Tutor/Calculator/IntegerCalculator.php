@@ -11,11 +11,13 @@ class IntegerCalculator implements CalculatorInterface
         }
 
         $sum = $addend + $augend;
-        var_dump($sum);
-        var_dump(PHP_INT_MAX);
         
-        if ($sum > PHP_INT_MAX) {
+        if (is_float($sum) && $sum > 0) {
             throw new \OverflowException('Integer overflow!');
+        }
+
+        if (is_float($sum) && $sum < 0) {
+            throw new \UnderflowException('Integer underflow!');
         }
 
         return $sum;
