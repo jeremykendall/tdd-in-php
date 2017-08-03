@@ -9,7 +9,7 @@ class IntegerCalculator implements CalculatorInterface
         if (!is_integer($addend) || !is_integer($augend)) {
             throw new \InvalidArgumentException('Non-integer argument provided');
         }
-        
+
         $sum = $addend + $augend;
 
         if (is_float($sum) && $sum > 0) {
