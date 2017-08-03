@@ -30,6 +30,7 @@ class IntegerCalculatorTest extends TestCase
 
     /**
      * @dataProvider additionDataProvider
+     *
      * @param $addend
      * @param $augend
      * @param $expected
@@ -42,6 +43,7 @@ class IntegerCalculatorTest extends TestCase
 
     /**
      * @dataProvider nonIntegerArgumentDataProvider
+     *
      * @param $addend
      * @param $augend
      */
@@ -54,6 +56,7 @@ class IntegerCalculatorTest extends TestCase
 
     /**
      * @dataProvider nonIntegerArgumentDataProvider
+     *
      * @param $addend
      * @param $augend
      */
@@ -80,20 +83,20 @@ class IntegerCalculatorTest extends TestCase
 
     public function additionDataProvider()
     {
-        return array(
-            array(2, 2, 4),
-            array(3, 2, 5),
-            array(-3, 2, -1),
-        );
+        return [
+            [2, 2, 4],
+            [3, 2, 5],
+            [-3, 2, -1],
+        ];
     }
 
     public function nonIntegerArgumentDataProvider()
     {
-        return array(
-            array('eff you', 12),
-            array(15, 'buddy'),
-            array(17.2, 12),
-            array(3, 22.5),
-        );
+        return [
+            ['eff you', 12],
+            [15, 'buddy'],
+            [17.2, 12],
+            [3, 22.5],
+        ];
     }
 }

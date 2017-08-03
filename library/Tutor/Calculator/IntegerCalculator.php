@@ -6,7 +6,7 @@ class IntegerCalculator implements CalculatorInterface
 {
     public function add($addend, $augend)
     {
-        if (!is_integer($addend) || !is_integer($augend)) {
+        if (!is_int($addend) || !is_int($augend)) {
             throw new \InvalidArgumentException('Non-integer argument provided');
         }
 
